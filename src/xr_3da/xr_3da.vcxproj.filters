@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="entry_point.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="AccessibilityShortcuts.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resources">
+      <UniqueIdentifier>{ff5edb3a-265f-46de-b360-f24cfd97703c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependecies">
+      <UniqueIdentifier>{6865aa32-039a-4a25-89fd-e1f88c548a3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="stalker_cop.ico">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="stalker_cs.ico">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="stalker_soc.ico">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="splash_xrcs_en.bmp">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="splash_xrcs_ru.bmp">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\OpenSXRay.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\..\sdk\binaries\$(PlatformShortName)\AnselSDK$(PlatformArchitecture).dll">
+      <Filter>Dependecies</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\..\Externals\AGS_SDK\ags_lib\lib\amd_ags_$(PlatformShortName).dll">
+      <Filter>Dependecies</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\..\sdk\binaries\x86\atimgpud.dll">
+      <Filter>Dependecies</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

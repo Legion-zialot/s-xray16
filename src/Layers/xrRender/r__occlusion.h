@@ -1,0 +1,51 @@
+#pragma once
+
+constexpr u32 occq_size = 2 * 768 * R__NUM_PARALLEL_CONTEXTS; // очередь для запросов occlusion
+
+// must conform to following order of allocation/free
+// a(A), a(B), a(C), a(D), ....
+// f(A), f(B), f(C), f(D), ....
+// a(A), a(B), a(C), a(D), ....
+//	this mean:
+//		use as litle of queries as possible
+//		first try to use queries allocated first
+//	assumption:
+//		used queries number is much smaller than total count
+
+class R_occlusion
+{
+private:
+    struct _Q
+    {
+        u32 order;
+#if defined(USE_DX9)
+        ID3DQuery* Q;
+#else
+#   error No graphics API selected or enabled!
+#endif
+    };
+
+    static const u32 iInvalidHandle = 0xFFFFFFFF;
+
+    BOOL enabled; //
+    xr_vector<_Q> pool; // sorted (max ... min), insertions are usually at the end
+    xr_vector<_Q> used; // id's are generated from this and it is cleared from back only
+    xr_vector<u32> fids; // free id's
+
+    Lock render_lock{};
+public:
+#if defined(USE_DX9)
+    typedef u32 occq_result;
+#else
+#   error No graphics API selected or enabled!
+#endif
+public:
+    R_occlusion();
+    ~R_occlusion();
+
+    void occq_create(u32 limit);
+    void occq_destroy();
+    u32 occq_begin(u32& ID); // returns 'order'
+    void occq_end(u32& ID);
+    occq_result occq_get(u32& ID);
+};
