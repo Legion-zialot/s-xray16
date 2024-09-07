@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="lua-marshal\lmarshal.c">
+      <Filter>lmarshal</Filter>
+    </ClCompile>
+    <ClCompile Include="lua-pack\lua_pack.c">
+      <Filter>lpack</Filter>
+    </ClCompile>
+    <ClCompile Include="lfs\src\lfs.c">
+      <Filter>lfs</Filter>
+    </ClCompile>
+    <ClCompile Include="xrLuaFix.cpp" />
+    <ClCompile Include="LibMath.cpp" />
+    <ClCompile Include="LibStr.cpp" />
+    <ClCompile Include="LibTab.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lfs">
+      <UniqueIdentifier>{9236e371-edd4-4f9b-88fe-3532a3f42655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lpack">
+      <UniqueIdentifier>{4a792d37-58a4-47ba-b536-3a6221dbb555}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lmarshal">
+      <UniqueIdentifier>{0c3c4112-bc37-43dc-ae94-f1a021ce3b2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{81d79afa-dc7c-4801-a9b2-998682535019}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lfs\src\lfs.def">
+      <Filter>lfs</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lfs\src\lfs.h">
+      <Filter>lfs</Filter>
+    </ClInclude>
+    <ClInclude Include="LibMath.h" />
+    <ClInclude Include="xrLuaFix.h" />
+    <ClInclude Include="LibStr.h" />
+    <ClInclude Include="LibTab.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="pch.hpp">
+      <Filter>pch</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

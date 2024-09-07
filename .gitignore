@@ -1,0 +1,29 @@
+# exclude all dot files except .git, appveyor and travis files
+.*
+!.git*
+!.appveyor*
+!.travis.yml
+!.editorconfig
+!.vscode
+
+# exclude binaries and temporary files
+CMakeCache.txt
+cmake_install.cmake
+cmake-build-*
+install_manifest.txt
+bin/
+[bB]uild*/
+intermediate/
+intermediate_plugs/
+lib/
+CMakeFiles/
+*.aps
+*.user
+*.PVS-Studio.*
+*.gch
+*.so
+*.a
+*.o
+
+# exclude doxygen output
+doc/doxygen/html/*
